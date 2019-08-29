@@ -29,6 +29,11 @@
 
   - name: start web-server and make it enable on boot
     service: name=nginx state=started enable=true
+    when: ansible_os_family == "Debian"
+
+  # - name: start web-server and make it enable on boot
+  #   service: name=nginx state=started enable=true
+  #   when: ansible_os_family == "RedHat"
 
   handlers:
   - name: restart nginx
