@@ -1,2 +1,2 @@
 anisble_user: "root"
-ansible_python_interpreter=/usr/bin/python2.7
+ansible_python_interpreter: "/usr/bin/python2.7"
