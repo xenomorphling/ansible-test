@@ -1,0 +1,23 @@
+---
+- name: install nginx and upload my web-page
+  hosts: all
+  become: true
+
+  vars:
+    source_file: ./site/index.html
+    dest_file: /var/www/html
+
+  tasks:
+  - name: install nginx web-server
+    apt: name=nginx state=latest
+
+  - name: copy index.html to servers
+    copy: src={{ source_file }} dest={{ dest_file }} mode=0555
+    notify: restart nginx
+
+  - name: start web-server and make it enable on boot
+    service: name=nginx state=started enable=true
+
+  handlers:
+  - name: restart nginx
+    service: name=nginx state=restarted
