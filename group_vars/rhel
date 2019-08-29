@@ -1,0 +1,2 @@
+anisble_user: "root"
+ansible_python_interpreter: "/usr/libexec/platform-python"
