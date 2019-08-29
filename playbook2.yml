@@ -5,45 +5,9 @@
 
   tasks:
   - name: install nginx web server
-    apt:
-     allow_unauthenticated: "#"
-     autoclean: "#"
-     autoremove: "#"
-     cache_valid_time: "#"
-     deb: "#"
-     default_release: "#"
-     dpkg_options: "#"
-     force: "#"
-     force_apt_get: "#"
-     install_recommends: "#"
-     name: "nginx"
-     only_upgrade: "#"
-     purge: "#"
-     state: "latest"
-     update_cache: "#"
-     upgrade: "#"
-     become: true 
-     become_method: su 
-     become_user: nobody 
-     become_flags: "-s /bin/sh" 
-     when: variable is defined 
-     with_items: array 
+    apt: name=nginx state=latest
+      
 
   - name: start nginx on boot
-    service:
-     arguments: "#"
-     enabled: "true"
-     name: "nginx"
-     pattern: "#"
-     runlevel: "#"
-     sleep: "#"
-     state: "started"
-     use: "#"
-     become: true 
-     become_method: su 
-     become_user: nobody 
-     become_flags: "-s /bin/sh" 
-     when: variable is defined 
-     with_items: array 
-    
+    service: name=nginx state=started enable=true
     
