@@ -23,3 +23,9 @@
 
   - debug:
       var: full_message
+
+  - debug:
+      var: ansible_os_family
+
+  - debug:
+      var: ansible_distribution
