@@ -18,3 +18,8 @@
 
   - debug:
       msg: "Owner of this server is {{ owner }}"
+
+  - set_fact: full_message="{{ message1 }} {{ message2 }} from {{ owner }}"
+
+  - debug:
+      var: full_message
