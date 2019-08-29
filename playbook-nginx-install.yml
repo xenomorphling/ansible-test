@@ -6,7 +6,7 @@
   vars:
     source_file: ./site/index.html
     dest_file: /var/www/html
-
+    dest_file_rhel: /usr/share/nginx/html
   tasks:
   - name: install nginx web-server for debian
     apt: name=nginx state=latest
@@ -20,6 +20,12 @@
   - name: copy index.html to servers
     copy: src={{ source_file }} dest={{ dest_file }} mode=0555
     notify: restart nginx
+    when: ansible_os_family == "Debian"
+
+  - name: copy index.html to servers
+    copy: src={{ source_file }} dest={{ dest_file_rhel }} mode=0555
+    notify: restart nginx
+    when: ansible_os_family == "RedHat"
 
   - name: start web-server and make it enable on boot
     service: name=nginx state=started enable=true
