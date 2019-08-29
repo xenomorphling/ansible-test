@@ -10,12 +10,12 @@
   tasks:
   - name: install nginx web-server for debian
     apt: name=nginx state=latest
-    when: ansible_os_family == "RedHat"
+    when: ansible_os_family == "Debian"
 
   tasks:
   - name: install nginx web-server for redhat
     yum: name=nginx state=latest
-    when: ansible_os_family == "Debian"
+    when: ansible_os_family == "RedHat"
 
   - name: copy index.html to servers
     copy: src={{ source_file }} dest={{ dest_file }} mode=0555
