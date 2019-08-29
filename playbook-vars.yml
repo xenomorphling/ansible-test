@@ -14,4 +14,7 @@
       var: secret
 
   - debug:
-    msg: "secret word: {{ secret }}"
+      msg: "secret word: {{ secret }}"
+
+  - debug:
+      msg: "Owner of this server is {{ owner }}"
