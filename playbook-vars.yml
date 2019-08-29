@@ -24,8 +24,16 @@
   - debug:
       var: full_message
 
+# показать семейство ос из переменной
   - debug:
       var: ansible_os_family
 
   - debug:
       var: ansible_distribution
+
+# запустить uptime и вывести на экран
+  - shell: uptime
+    register: results
+
+  - degug:
+      var: results
