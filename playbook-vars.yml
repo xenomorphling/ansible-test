@@ -1,2 +1,14 @@
 ---
 - name: my super playbook for variables lesson
+  hosts: all
+  become: true
+
+  vars:
+    message1: Hello
+    message2: World
+    secret: asdfjkl;
+
+  tasks:
+  - name: Print secret variable
+    debug: 
+      var: secret
