@@ -12,3 +12,6 @@
   - name: Print secret variable
     debug: 
       var: secret
+
+  - debug:
+    msg: "secret word: {{ secret }}"
