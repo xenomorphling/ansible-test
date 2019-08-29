@@ -1,0 +1,15 @@
+---
+- name: remove nginx and delete my web-page
+  hosts: all
+  become: true
+
+  vars:
+    source_file: ./site/index.html
+    dest_file: /var/www/html/*
+
+  tasks:
+  - name: remove nginx web-server
+     apt: name=nginx state=absent
+
+  - name: delete index.html from servers
+    file: path={{ dest_file }} state=absent
