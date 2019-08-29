@@ -35,5 +35,5 @@
   - shell: uptime
     register: results
 
-  - degug:
+  - debug:
       var: results
