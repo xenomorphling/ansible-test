@@ -8,8 +8,14 @@
     dest_file: /var/www/html
 
   tasks:
-  - name: install nginx web-server
+  - name: install nginx web-server for debian
     apt: name=nginx state=latest
+    when: ansible_os_family == 'RedHat'
+
+  tasks:
+  - name: install nginx web-server for redhat
+    yum: name=nginx state=latest
+    when: ansible_os_family == 'Debian'
 
   - name: copy index.html to servers
     copy: src={{ source_file }} dest={{ dest_file }} mode=0555
