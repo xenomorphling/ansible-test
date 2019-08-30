@@ -15,7 +15,7 @@
   - block: # Block for RedHat
 
       - name: Install nginx Web Server for RedHat
-        yum: name=nginx state=latest
+        dnf: name=nginx state=latest
   
       - name: Copy Home Page file to Web Server
         copy: src={{ source_file }} dest={{ dest_file_rhel }} mode=0555
