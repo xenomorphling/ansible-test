@@ -11,3 +11,14 @@
       - "User2"
       - "User3"
       - "User4"
+
+  - name: Loop Until
+    shell: echo -n Z >> myfile.txt && cat myfile.txt
+    register: output
+    delay: 2
+    retries: 10
+    until: output.stdout.find("ZZZZ") == false
+
+  - name: Print Final output
+    debug:
+      var: output.stdout
