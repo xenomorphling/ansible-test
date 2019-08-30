@@ -4,9 +4,9 @@
   become: true
 
   vars:
-    source_folder: "./site2/*"
-    dest_folder: /var/www/html/
-    dest_folder_rhel: /usr/share/nginx/html/
+    source_folder: ./site2
+    dest_folder: /var/www/html
+    dest_folder_rhel: /usr/share/nginx/html
 
   tasks:
   # - name: Check Linux family
