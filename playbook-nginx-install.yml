@@ -22,7 +22,7 @@
         notify: Restart Nginx for RedHat
   
       - name: Start Web Server service for RedHat
-        systemd: name=nginx state=started enable=yes
+        systemd: name=nginx state=enabled enable=yes
   
     when: ansible_os_family == "RedHat"
 
@@ -42,7 +42,7 @@
 
   handlers:
   - name: Restart Nginx for RedHat
-    systemd: name=nginx state=restarted
+    systemd: name=nginx state=daemon_reload
 
   - name: Restart Nginx for Debian
     service: name=nginx state=restarted
