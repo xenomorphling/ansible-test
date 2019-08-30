@@ -17,7 +17,7 @@
     register: output
     delay: 2
     retries: 10
-    until: output.stdout.find("ZZZZ") == false
+    until: output.stdout.find("ZZZZZZZ") == false
 
   - name: Print Final output
     debug:
