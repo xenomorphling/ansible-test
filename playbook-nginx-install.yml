@@ -8,9 +8,9 @@
     dest_file: /var/www/html
     dest_file_rhel: /usr/share/nginx/html
 
-  # tasks:
-  # - name: Check Linux family
-  #   debug: var = ansible_os_family
+  tasks:
+  - name: Check Linux family
+    debug: var = ansible_os_family
 
   - block: # Block for RedHat
 
