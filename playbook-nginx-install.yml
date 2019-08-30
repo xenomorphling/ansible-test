@@ -36,8 +36,8 @@
         notify: Restart Nginx for Debian
   
       - name: Start Web Server service for Debian
-        service: name=nginx state=started enable=yes
-
+        systemd: name=nginx daemon_reload=yes enabled=yes
+        
     when: ansible_os_family == "Debian"
 
   handlers:
