@@ -27,12 +27,10 @@
     service: name=nginx state=started enable=true
 
   tasks:
+  - name: cope index.html to servers RedHat
     copy: src={{ source_file }} dest={{ dest_file_rhel }} mode=0555
     notify: restart nginx RedHat
     when: ansible_os_family == "RedHat"
-
-  - name: start web-server and make it enable on boot
-    service: name=nginx state=started enable=true
 
   handlers:
   - name: restart nginx Debian
