@@ -1,0 +1,82 @@
+.blog-container
+  background-color: #fafafa
+  border-radius: 5px
+  box-shadow: rgba(0,0,0,0.2) 0 4px 2px -2px
+  font-weight: 100
+  margin: 48px auto
+  width: 50rem
+  border: 2px solid #fafafa
+  transition: 1s ease all
+  &:hover
+    border: 2px solid #984D4D
+  .blog-header
+    .blog-cover
+      background: url(../img/dizain-prodvigenie-2.jpg)
+      background-size: cover
+      border-radius: 5px 5px 0 0
+      height: 10rem
+  .blog-body
+    margin: 0 auto
+    width: 80%
+    margin-bottom: 1rem
+    margin-top: 1rem
+    h1
+      a
+        color: #333333
+        font-weight: 700
+    .blog-text
+      .p-text
+        color: #4d4d4d
+        font-weight: 500
+    .blog-tags
+
+      ul
+        display: flex
+        flex-direction: row
+        flex-wrap: wrap
+        list-style: none
+        padding-left: 0
+        li
+          margin-left: .5rem
+          a
+            border: 1px solid #999999
+            -webkit-border-radius: 3px
+            -moz-border-radius: 3px
+            border-radius: 3px
+            color: #999999
+            font-size: .75rem
+            height: 1.5rem
+            line-height: 1.5rem
+            letter-spacing: 1px
+            padding: 0 .5rem
+            text-align: center
+            text-transform: uppercase
+            white-space: nowrap
+            width: 5rem
+            &:hover
+              border: 1px solid #99393e
+
+  .blog-footer
+    border-top: 1px solid #999999
+    margin: 0 auto
+    padding-bottom: .125rem
+    width: 80%
+    ul
+      list-style: none
+      display: flex
+      flex-wrap: nowrap
+      justify-content: flex-end
+      padding-left: 0
+      li
+        color: #999999
+        font-size: .75rem
+        height: 1.5rem
+        text-align: center
+        text-transform: uppercase
+        white-space: nowrap
+      .published-date
+        border: 1px solid #999999
+        -webkit-border-radius: 3px
+        -moz-border-radius: 3px
+        border-radius: 3px
+        padding: .5rem

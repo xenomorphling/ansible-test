@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible", content="ie=edge")
+        title mirills
+        link(rel="stylesheet", href="/styles/main.css")
+        link(href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet")
+    body
+        .header
+            .logo
+                a(href="http://")
+                    img(class="graphic_logo" src="/img/logo.png", alt="Логотип")
+            .nav
+                .topnav(id="myTopnav")
+                    a(href="/index.html") HOME
+                    a(href="/project.html") Project
+                    a(href="/blog.html") blog
+                    a(href="/contact.html") contact
+                    a(href="/about.html") about
+                    a(href="/services.html") services
+                    a(href="/location.html") location
+                    a(id="menu" href="").icon &#9776;
+                    
+        main
+            .form
+                p
+                    input(type="name", placeholder="Name").feedback_input
+                p
+                    input(type="email", placeholder="E-mail").feedback_input
+                p
+                    textarea(name="text", placeholder="Message", id="comment").input_message.feedback_input
+
+                input(type="submit", value="Submit").button_submit
+                .ease
+        footer
+            .nav
+                a(href="/index.html") HOME
+                a(href="/project.html") Project
+                a(href="/blog.html") blog
+                a(href="/contact.htnl") contact
+                a(href="/about.html") about
+                a(href="/services.html") services
+                a(href="/location.html") location
+            .logo
+                a.graphic_logo(href="")
+                    img(src="/img/logo.png", alt="")
+            social
+                a
+                    img(src="/img/icons8-твиттер-100.png")
+                a
+                    img(src="/img/icons8-главная-100.png")
+                a
+                    img(src="/img/icons8-камера-100.png")
+                a
+                    img(src="/img/icons8-телефон-100.png")
+                a
+                    img(src="/img/icons8-направо-100.png")
+            .p Web Developer Blog 2017
+
+        script(src="/js/script.js")

@@ -1,0 +1,13 @@
+---
+- name: Loops Playbook
+  hosts: linux3
+  become: 
+
+  tasks:
+  - name: Say Hello to ALL
+    debug: msg="Hello {{ item }}"
+    loop:
+      - "User1"
+      - "User2"
+      - "User3"
+      - "User4"
