@@ -8,33 +8,33 @@
     dest_file: /var/www/html
     dest_file_rhel: /usr/share/nginx/html
   tasks:
-  - name: install nginx web-server for debian
+  - name: install nginx web-server for Debian
     apt: name=nginx state=latest
     when: ansible_os_family == "Debian"
 
   tasks:
-  - name: install nginx web-server for redhat
+  - name: install nginx web-server for RedHat
     dnf: name=nginx state=latest
     when: ansible_os_family == "RedHat"
 
-  - name: copy index.html to servers
+  - name: copy index.html to servers Debian
     copy: src={{ source_file }} dest={{ dest_file }} mode=0555
-    notify: restart nginx
+    notify: restart nginx Debian
     when: ansible_os_family == "Debian"
 
-  - name: copy index.html to servers
+  - name: copy index.html to servers RedHat
     copy: src={{ source_file }} dest={{ dest_file_rhel }} mode=0555
-    notify: restart nginx
+    notify: restart nginx RedHat
     when: ansible_os_family == "RedHat"
 
   - name: start web-server and make it enable on boot
     service: name=nginx state=started enable=true
     when: ansible_os_family == "Debian"
 
-  # - name: start web-server and make it enable on boot
-  #   service: name=nginx state=started enable=true
-  #   when: ansible_os_family == "RedHat"
+  handlers:
+  - name: restart nginx Debian
+    service: name=nginx state=restarted
 
   handlers:
-  - name: restart nginx
-    service: name=nginx state=restarted
+  - name: restart nginx RedHat
+    service: name=nginx state=daemon_reload
