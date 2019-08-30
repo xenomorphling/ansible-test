@@ -8,5 +8,5 @@ linux2 ansible_host=10.166.0.40 owner=Corporation2
 linux3 ansible_host=10.166.0.41 owner=Corporation3
 
 [rhel]
-linux4 ansible_host=10.128.0.3 owner=Redhat_Corp
+linux4 ansible_host=10.166.0.42 owner=Redhat_Corp
 
