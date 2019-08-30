@@ -27,10 +27,6 @@
     service: name=nginx state=started enable=true
 
   tasks:
-  - name: install nginx web-server for redhat
-    dnf: name=nginx state=latest
-    when: ansible_os_family == "RedHat"
-
     copy: src={{ source_file }} dest={{ dest_file_rhel }} mode=0555
     notify: restart nginx RedHat
     when: ansible_os_family == "RedHat"
