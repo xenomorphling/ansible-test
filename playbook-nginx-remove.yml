@@ -11,5 +11,12 @@
   - name: remove nginx web-server
     package: name=nginx state=absent
 
-  - name: delete index.html from servers
-    file: path={{ dest_file }} state=absent
+  - name: delete site from servers
+    shell: "rm -rf {{ dest_file }}"
+
+  - block
+    - name: Remove Nginx and site from Debian systems
+      package: name=nginx state=absent
+
+    - name: Delete site files form folder
+      shell
