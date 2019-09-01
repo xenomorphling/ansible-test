@@ -9,7 +9,7 @@
 
   tasks:
   - name: remove nginx web-server
-     apt: name=nginx state=absent
+    package: name=nginx state=absent
 
   - name: delete index.html from servers
     file: path={{ dest_file }} state=absent
