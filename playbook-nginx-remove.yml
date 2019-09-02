@@ -15,22 +15,22 @@
   - name: delete site from servers
     shell: "rm -rf {{ dest_file }}"
 
-    - block:
+  - block:
 
-      - name: Remove Nginx and site from Debian systems
-        package: name=nginx state=absent
-  
-      - name: Delete site files from folder
-        shell: "rm -rf {{ dest_file }}"
+    - name: Remove Nginx and site from Debian systems
+      package: name=nginx state=absent
 
-      when: ansible_os_family == "Debian"
+    - name: Delete site files from folder
+      shell: "rm -rf {{ dest_file }}"
 
-    - block:
+    when: ansible_os_family == "Debian"
 
-      - name: Remove Nginx and site from RedHat systems
-        package: name=nginx state=absent
+  - block:
 
-      - name: Delete site file from folder
-        shell: "rm -rf {{ dest_file_rhel }}"
+    - name: Remove Nginx and site from RedHat systems
+      package: name=nginx state=absent
 
-      when: ansible_os_family == "RedHat"
+    - name: Delete site file from folder
+      shell: "rm -rf {{ dest_file_rhel }}"
+
+    when: ansible_os_family == "RedHat"
