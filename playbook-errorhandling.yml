@@ -6,6 +6,7 @@
   tasks:
   - name: task 1
     package: name=nanaooaon state=latest
+    ignore_errors: true
 
   - name: task 2
     shell: echo Hello
