@@ -4,5 +4,5 @@
   become: true
 
   roles:
-    - deploy_nginx_web
+    - { role: deploy_nginx_web, when: ansible_system == 'Linux' }
 
