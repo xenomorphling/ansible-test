@@ -5,7 +5,7 @@
       package: name=nginx state=latest
   
     - name: Copy Home Page file to Web Server
-      copy: src={{ item }} dest={{ dest_folder_rhel }} mode=0555
+      copy: src=deploy_nginx_web/files dest={{ dest_folder_rhel }} mode=0555
 
     - name: Generate index.html
       template: src=index.j2 dest={{ dest_folder_rhel }}/index.html mode=0555
@@ -21,7 +21,7 @@
       apt: name=nginx state=latest
 
     - name: Copy Home Page file to Web Server
-      copy: src={{ item }} dest={{ dest_folder }} mode=0555
+      copy: src=deploy_nginx_web/files dest={{ dest_folder }} mode=0555
      
     - name: Generate index.html
       template: src=index.j2 dest={{ dest_folder }}/index.html mode=0555
