@@ -10,3 +10,9 @@ linux3 ansible_host=10.166.0.41 owner=Corporation3
 [rhel]
 linux4 ansible_host=10.166.0.42 owner=Redhat_Corp
 
+[all_linux: children]
+staging
+testing
+prod
+rhel
+

@@ -1,6 +1,6 @@
 ---
 - name: install nginx and upload my web-page
-  hosts: all
+  hosts: "{{ myhosts }}"
   become: true
 
   roles:
