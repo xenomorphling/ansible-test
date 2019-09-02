@@ -3,43 +3,6 @@
   hosts: all
   become: true
 
-  vars:
-    source_folder: ./site2/
-    dest_folder: /var/www/html
-    dest_folder_rhel: /usr/share/nginx/html
+  roles:
+    - { role: deploy_nginx_web, when: ansible_system == 'Linux' }
 
-  tasks:
-  # - name: Check Linux family
-  #   debug: var = ansible_os_family
-
-  - block: # Block for RedHat
-
-      - name: Install nginx Web Server for RedHat
-        package: name=nginx state=latest
-  
-      - name: Copy Home Page file to Web Server
-        copy: src={{ source_folder }} dest={{ dest_folder_rhel }} mode=0555
-        notify: Restart Nginx
-  
-      - name: Start Web Server service for RedHat
-        service: name=nginx state=started enabled=yes
-  
-    when: ansible_os_family == "RedHat"
-
-  - block: # Block for Debian
-
-      - name: Install Nginx Web Server for Debian
-        apt: name=nginx state=latest
-  
-      - name: Copy Home Page file to Web Server
-        copy: src={{ source_folder }} dest={{ dest_folder }} mode=0555
-        notify: Restart Nginx
-  
-      - name: Start Web Server service for Debian
-        service: name=nginx state=started enabled=yes
-        
-    when: ansible_os_family == "Debian"
-
-  handlers:
-  - name: Restart Nginx
-    service: name=nginx state=reloaded
