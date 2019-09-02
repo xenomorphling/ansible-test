@@ -1,0 +1,29 @@
+---
+- name: My Playbook
+  hosts: all
+  become: true
+
+  vars: 
+    mytext: "Hello, User!"
+
+  tasks:
+  - name: Ping
+    ping:
+
+  - name: Create file1
+    copy:
+      dest: /home/file1.txt
+      content:
+        This is file1
+        Hello World
+        {{ mytext }}
+    delegate_to: linux3
+
+  - name: Create file1
+    copy:
+      dest: /home/file1.txt
+      content:
+        This is file1
+        Hello World
+        {{ mytext }}
+    delegate_to: linux3
