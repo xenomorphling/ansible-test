@@ -1,6 +1,7 @@
 ---
 - name: Error Handling
   hosts: all
+  any_errors_fatal: true
   become: true
 
   tasks:
@@ -11,7 +12,7 @@
   - name: task 2
     shell: echo Hello
     register: results
-    failed_when: results.rc == 0
+    #failed_when: results.rc == 0
     #failed_when: "'Hello' in results.stdout"
 
   - debug:
