@@ -1,0 +1,14 @@
+---
+- name: Error Handling
+  hosts: all
+  become: true
+
+  tasks:
+  - name: task 1
+    package: name=nanaooaon state=latest
+
+  - name: task 2
+    shell: echo Hello
+
+  - name: task3 
+    shell: echo Wake up, Neo...
