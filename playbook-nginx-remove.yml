@@ -6,6 +6,7 @@
   vars:
     source_file: ./site/index.html
     dest_file: /var/www/html/*
+    dest_file_rhel: /usr/share/nginx/html/*
 
   tasks:
   - name: remove nginx web-server
@@ -14,9 +15,22 @@
   - name: delete site from servers
     shell: "rm -rf {{ dest_file }}"
 
-  - block
-    - name: Remove Nginx and site from Debian systems
-      package: name=nginx state=absent
+    - block:
 
-    - name: Delete site files form folder
-      shell
+      - name: Remove Nginx and site from Debian systems
+        package: name=nginx state=absent
+  
+      - name: Delete site files from folder
+        shell: "rm -rf {{ dest_file }}"
+
+      when: ansible_os_family == "Debian"
+
+    - block:
+
+      - name: Remove Nginx and site from RedHat systems
+        package: name=nginx state=absent
+
+      - name: Delete site file from folder
+        shell: "rm -rf {{ dest_file_rhel }}"
+
+      when: ansible_os_family == "RedHat"
