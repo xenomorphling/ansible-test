@@ -13,7 +13,7 @@
     register: results
 
   - debug:
-    vars: results
+      vars: results
 
   - name: task3 
     shell: echo Wake up, Neo...
