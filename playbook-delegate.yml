@@ -39,7 +39,7 @@
 
   - name: Wait until my servers will come up online
     wait_for: 
-      host: {{ inventory_hostname }}
+      host: "{{ inventory_hostname }}"
       state: started
       delay: 5
       timeout: 40
