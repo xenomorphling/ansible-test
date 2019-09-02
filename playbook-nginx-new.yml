@@ -37,7 +37,7 @@
         copy: src={{ source_folder }} dest={{ dest_folder }} mode=0555
         
       - name: Generate index.html
-        template: src={{ source_folder }}/index.j2 dest={{ dest_folder }} mode=0555
+        template: src={{ source_folder }}/index.j2 dest={{ dest_folder }}/index.html mode=0555
         notify: Restart Nginx
 
       - name: Start Web Server service for Debian
