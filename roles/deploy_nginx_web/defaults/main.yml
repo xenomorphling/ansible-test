@@ -1,2 +1,5 @@
 ---
 # defaults file for deploy_nginx_web
+source_folder: ./site2/
+dest_folder: /var/www/html
+dest_folder_rhel: /usr/share/nginx/html
