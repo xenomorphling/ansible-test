@@ -19,4 +19,4 @@
       package: name=nginx state=absent
 
     - name: Delete site files form folder
-      shell
+      shell: 
