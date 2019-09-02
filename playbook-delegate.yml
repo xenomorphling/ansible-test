@@ -10,6 +10,10 @@
   - name: Ping
     ping:
 
+  - name: Unregister server from load balancer
+    shell: echo This server is {{ inventory_hostname }} was unregistered from load balancer, node name is {{ ansible_nodename }} >> /home/log.txt
+    delegate_to: 127.0.0.1
+
   - name: Create file1
     copy:
       dest: /home/file1.txt
@@ -19,11 +23,11 @@
         {{ mytext }}
     delegate_to: linux3
 
-  - name: Create file1
+  - name: Create file2
     copy:
-      dest: /home/file1.txt
+      dest: /home/file2.txt
       content:
-        This is file1
+        This is file2
         Hello World
         {{ mytext }}
     delegate_to: linux3
