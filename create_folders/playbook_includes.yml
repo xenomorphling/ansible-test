@@ -1,0 +1,14 @@
+---
+- name: My Playbook
+  hosts: all
+  become: true
+
+  vars: 
+    mytext: "Hello, User!"
+
+  tasks:
+  - name: Ping test
+    ping:
+
+  - include: create_folders.yml
+  - include: create_files.yml mytext="Wake up, Neo..."

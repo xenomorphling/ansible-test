@@ -1,0 +1,17 @@
+---
+- name: Creating file1
+  copy:
+    dest: /home/secrest/file1.txt
+    content:
+      Text Line 1 in file 1
+      Text Line 2 in file 1
+      Text Line 3, {{ mytext }}
+
+- name: Creating file2
+  copy:
+    dest: /home/secrest/file2.txt
+    content:
+      Text Line 1 in file 2
+      Text Line 2 in file 2
+      Text Line 3, {{ mytext }}
+
