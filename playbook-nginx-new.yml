@@ -11,12 +11,14 @@
   tasks:
   # - name: Check Linux family
   #   debug: var = ansible_os_family
-
   - block: # Block for RedHat
 
       - name: Install nginx Web Server for RedHat
         package: name=nginx state=latest
   
+      - name: Generate index.html
+        template: src={{ source_folder }}/index.j2 dest={{ dest_folder }} mode=0555
+
       - name: Copy Home Page file to Web Server
         copy: src={{ source_folder }} dest={{ dest_folder_rhel }} mode=0555
         notify: Restart Nginx
@@ -31,6 +33,9 @@
       - name: Install Nginx Web Server for Debian
         apt: name=nginx state=latest
   
+      - name: Generate index.html
+        template: src={{ source_folder }}/index.j2 dest={{ dest_folder_rhel }} mode=0555
+
       - name: Copy Home Page file to Web Server
         copy: src={{ source_folder }} dest={{ dest_folder }} mode=0555
         notify: Restart Nginx
