@@ -16,13 +16,13 @@
       - name: Install nginx Web Server for RedHat
         package: name=nginx state=latest
   
-      - name: Generate index.html
-        template: src={{ source_folder }}/index.j2 dest={{ dest_folder }} mode=0555
-
       - name: Copy Home Page file to Web Server
         copy: src={{ source_folder }} dest={{ dest_folder_rhel }} mode=0555
+
+      - name: Generate index.html
+        template: src={{ source_folder }}/index.j2 dest={{ dest_folder }}/index.html mode=0555
         notify: Restart Nginx
-  
+
       - name: Start Web Server service for RedHat
         service: name=nginx state=started enabled=yes
   
@@ -38,8 +38,11 @@
 
       - name: Copy Home Page file to Web Server
         copy: src={{ source_folder }} dest={{ dest_folder }} mode=0555
+        
+      - name: Generate index.html
+        template: src={{ source_folder }}/index.j2 dest={{ dest_folder_rhel }} mode=0555
         notify: Restart Nginx
-  
+
       - name: Start Web Server service for Debian
         service: name=nginx state=started enabled=yes
         
